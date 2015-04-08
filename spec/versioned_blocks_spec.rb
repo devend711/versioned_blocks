@@ -100,5 +100,16 @@ describe 'Versioned Blocks' do
         expect(uri).to include @base_uri
       end
     end
+
+    it 'returns the default specified versions' do
+      versioned_block do |v|
+        count = 0
+        versioned_block do |v|
+          count += 1
+          expect(v).to eq count
+        end
+        expect(count).to eq @versions[:to]
+      end
+    end
   end
 end
