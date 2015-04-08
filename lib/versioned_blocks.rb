@@ -16,11 +16,15 @@ class VersionedBlocks
       #   base:'http://www.example.com/'
       # or set a default base like:
       #   VersionedRetry.base = 'http://www.example.com/'
-      b = opts.has_key?(:base_uri) ? opts[:base_uri] : self.base_uri
+      b = opts.has_key?(:base_uri) && (opts[:override]==true || self.base_uri=='') ? opts[:base_uri] : self.base_uri
       raise('Empty base URI! Set VersionedBlock.base_uri or pass a :base_uri as an option') if b.nil? || b==''
       b += '/' unless b[-1]=='/' # add a slash if it's missing
       b = b[0..-2] if b[-2..-1]=='//' # get rid of trailing double slashes
       b
+    end
+
+    def opts_specify_a_version?(opts)
+      opts.has_key?(:to) || (opts.has_key?(:to) && opts.has_key?(:from)) || opts.has_key?(:only) || opts.has_key?(:these)
     end
 
     def versions_from_opts(opts)
@@ -35,7 +39,8 @@ class VersionedBlocks
       #   override:true
       # or reset the default versioning with:
       #   VersionedRetry.reset
-      opts = self.versions unless (opts[:override]==true || self.versions == {})
+      opts = opts_specify_a_version?(opts) || (opts[:override]==true && opts_specify_a_version?(opts)) ? opts : self.versions 
+      #opts = self.versions unless (opts[:override]==true || self.versions == {})
       if opts[:from].is_a?(Integer) && opts[:to].is_a?(Integer) # from vX to vY
         versions_to_test = (opts[:from]..opts[:to])
       else

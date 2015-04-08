@@ -82,6 +82,12 @@ describe 'Versioned Blocks' do
       expect(VersionedBlocks.base_uri).to eq @base_uri
     end
 
+    it 'can override a default uri' do
+      versioned_block(base_uri: 'test2.com', override: true) do |v, uri|
+          expect(uri).to include 'test2'
+      end
+    end
+
     it 'prepends errors' do
       expect(VersionedBlocks.prepend_errors).to eq @prepend_errors
       begin

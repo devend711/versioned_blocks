@@ -2,11 +2,11 @@
 
 Are you working with versioned APIs? Loop through them easily like this:
 
-	versioned_block(from:1, to:3) {|v| puts "version #{v}"}
+	versioned_block(from: 1, to: 3) {|v| puts "version #{v}"}
 
 	VersionedBlocks.base_uri = 'http://www.api.com/'
 
-	versioned_block(from:2, to:4) do |v, uri|
+	versioned_block(from: 2, to: 4) do |v, uri|
 		puts "For version #{v}, the URI is #{uri}"
 	end
 
@@ -32,9 +32,27 @@ You can config all blocks to run over a certain range by default, like this...
 		puts "For version #{v}, the URI is #{uri}"
 	end
 
+### Configuration
+
+You can set your preferences like this...
+      
+	VersionedBlocks.versions = {to: 5}
+	VersionedBlocks.base_uri = 'http://www.api.com/'
+	VersionedBlocks.prepend_errors = true
+
+...and reset them all like this:
+
+	VersionedBlocks.reset
+
+`VersionedBlocks.versions` and `VersionedBlocks.base_uri` can both be overridden in a specific case using `override: true`:
+
+	versioned_block(from: 1, to: 10, base_uri: 'http://new-api.com/', override: true) do |v, uri|
+		puts "For version #{v}, the URI is #{uri}"
+	end
+
 ### Error messages
 
-If you're using a versioned_block inside a test, for example, you might want any error messages to include the version number. Just configure VersionedBlocks like this:
+If you're using a versioned_block inside a test, for example, you might want any error messages to include some information about the version number that the test broke on. Just configure VersionedBlocks like this:
 
 	VersionedBlocks.prepend_errors = true
 
