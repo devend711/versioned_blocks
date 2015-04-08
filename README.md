@@ -47,7 +47,14 @@ You can set your preferences like this...
 `VersionedBlocks.versions` and `VersionedBlocks.base_uri` can both be overridden in a specific case using `override: true`:
 
 	versioned_block(from: 1, to: 10, base_uri: 'http://new-api.com/', override: true) do |v, uri|
-		puts "For version #{v}, the URI is #{uri}"
+		puts "For version #{v}, the URI is now #{uri}"
+	end
+
+You can also just override one of them - the other will use the default value:
+
+	versioned_block(from: 1, to: 10, override: true) do |v, uri|
+		"Puts overriding the versions but not the uri:"
+		puts "For version #{v}, the URI is still #{uri}"
 	end
 
 ### Error messages
