@@ -1,12 +1,12 @@
-require "versioned_blocks/version"
-
 class VersionedBlocks
+  VERSION = "1.0.0"
+
   class << self
-    attr_accessor :config, :base_uri, :prepend_errors
+    attr_accessor :versions, :base_uri, :prepend_errors
 
     def reset
       # set defaults
-      self.config = {}
+      self.versions = {}
       self.base_uri = ''
       self.prepend_errors = false
     end
@@ -35,7 +35,7 @@ class VersionedBlocks
       #   override:true
       # or reset the default versioning with:
       #   VersionedRetry.reset
-      opts = self.config unless (opts[:override]==true || self.config == {})
+      opts = self.versions unless (opts[:override]==true || self.versions == {})
       if opts[:from].is_a?(Integer) && opts[:to].is_a?(Integer) # from vX to vY
         versions_to_test = (opts[:from]..opts[:to])
       else
@@ -65,13 +65,13 @@ module Kernel
     versions_to_test = VersionedBlocks.versions_from_opts(opts)
     if block.arity == 2 # if block is asking for the uri and the version
       base_uri = VersionedBlocks.base_uri_from_opts(opts)
-      versions = versions_to_test.map{|num| ["v#{num}", "#{base_uri}v#{num}"]}
-    else # just return the version
-      versions = versions_to_test.map{|num| "v#{num}"}
+      versions = versions_to_test.map{|num| [num, "#{base_uri}v#{num}"]}
+    else # just return the version 
+      versions = versions_to_test.to_a #.map{|num| "v#{num}"}
     end
     versions.each do |v, uri|
       begin
-        return block.call(v, uri)
+        block.call(v, uri)
       rescue Exception=> e
         e.message.prepend("When version = #{v}: ") if VersionedBlocks.prepend_errors
         raise e
