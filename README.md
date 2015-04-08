@@ -10,7 +10,9 @@ Are you working with versioned APIs? Loop through them easily like this:
 		puts "For version #{v}, the URI is #{uri}"
 	end
 
-The above example would pass 'http://www.api.com/v2' through 'http://www.api.com/v4' to the block.
+The last example would pass 'http://www.api.com/v2' through 'http://www.api.com/v4' to the block.
+
+### Specifying ranges
 
 You can specify version ranges in many ways:
 - {from: 2, to: 4} would result in v2, v3, v4
@@ -29,6 +31,8 @@ You can config all blocks to run over a certain range by default, like this...
 	versioned_block(only: 5, override: true) do |v, uri|
 		puts "For version #{v}, the URI is #{uri}"
 	end
+
+### Error messages
 
 If you're using a versioned_block inside a test, for example, you might want any error messages to include the version number. Just configure VersionedBlocks like this:
 
