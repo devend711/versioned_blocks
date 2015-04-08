@@ -16,11 +16,13 @@ You can specify version ranges in many ways:
 - {only: 6} would result in v6
 - {these: [2,4,5]} would result in v2, v4, v5
 
-You can config all blocks to run over a certain range by default, like this:
+You can config all blocks to run over a certain range by default, like this...
 	
 	VersionedBlocks.versions = {from: 2, to: 4}
 
-And override a default range in a specific case like this:
+	versioned_block {|v, uri| puts "URI: #{uri}"}
+
+...and override a default range in a specific case like this:
 	
 	versioned_block(only: 5, override: true) do |v, uri|
 		puts "For version #{v}, the URI is #{uri}"
