@@ -2,7 +2,7 @@
 
 Are you working with versioned APIs? Loop through them easily like this:
 
-	versioned_block(from:1, to:3) {|version| puts "version #{v}"}
+	versioned_block(from:1, to:3) {|v| puts "version #{v}"}
 
 	VersionedBlocks.base_uri = 'http://www.api.com/'
 
