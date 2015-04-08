@@ -1,6 +1,20 @@
-# VersionedBlocks
+# versioned_blocks
 
-TODO: Write a gem description
+Are you working with versioned APIs? Loop through them easily like this:
+
+	VersionedBlocks.base_uri = 'http://www.api.com/'
+
+	versioned_block(from:2, to:4) do |v, uri|
+		puts "For version #{v}, the URI is #{uri}"
+	end
+
+The above example would return 'http://www.api.com/v2' through 'http://www.api.com/v8'
+
+You can specify version ranges in many ways:
+- {from:2, to:4} -> [2,3,4]
+- {to: 5} -> [1,2,3,4,5]
+- {only: 6} -> [6]
+- {these:[2,4,5]} -> [2,4,5]
 
 ## Installation
 
