@@ -8,13 +8,13 @@ Are you working with versioned APIs? Loop through them easily like this:
 		puts "For version #{v}, the URI is #{uri}"
 	end
 
-The above example would return 'http://www.api.com/v2' through 'http://www.api.com/v8'
+The above example would return 'http://www.api.com/v2' through 'http://www.api.com/v4'
 
 You can specify version ranges in many ways:
-- {from:2, to:4} -> [2,3,4]
-- {to: 5} -> [1,2,3,4,5]
-- {only: 6} -> [6]
-- {these:[2,4,5]} -> [2,4,5]
+- {from: 2, to:4} would result in v2, v3, v4
+- {to: 3} would result in v1, v2, v3
+- {only: 6} would result in v6
+- {these: [2,4,5]} would result in v2, v4, v5
 
 ## Installation
 
