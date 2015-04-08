@@ -8,7 +8,7 @@ Are you working with versioned APIs? Loop through them easily like this:
 		puts "For version #{v}, the URI is #{uri}"
 	end
 
-The above example would return 'http://www.api.com/v2' through 'http://www.api.com/v4'
+The above example would pass 'http://www.api.com/v2' through 'http://www.api.com/v4' to the block.
 
 You can specify version ranges in many ways:
 - {from: 2, to: 4} would result in v2, v3, v4

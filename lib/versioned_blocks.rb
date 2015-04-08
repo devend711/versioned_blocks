@@ -67,7 +67,7 @@ module Kernel
       base_uri = VersionedBlocks.base_uri_from_opts(opts)
       versions = versions_to_test.map{|num| [num, "#{base_uri}v#{num}"]}
     else # just return the version 
-      versions = versions_to_test.to_a #.map{|num| "v#{num}"}
+      versions = versions_to_test.to_a
     end
     versions.each do |v, uri|
       begin
