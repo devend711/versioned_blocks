@@ -26,7 +26,7 @@ And override a default range in a specific case like this:
 		puts "For version #{v}, the URI is #{uri}"
 	end
 
-If you're using a versioned_block inside a test, for example, you might want any errors to include the version number. To add a note about which version a test broke on, configure VersionedBlocks like this:
+If you're using a versioned_block inside a test, for example, you might want any error messages to include the version number. Just configure VersionedBlocks like this:
 
 	VersionedBlocks.prepend_errors = true
 
