@@ -78,7 +78,7 @@ module Kernel
       begin
         block.call(v, uri)
       rescue Exception=> e
-        e.message.prepend("When version = #{v}: ") if VersionedBlocks.prepend_errors
+        e.message.prepend("When version = #{v}: ") if VersionedBlocks.prepend_errors || (opts[:override]==true && opts[:prepend_errors]==true)
         raise e
       end
     end

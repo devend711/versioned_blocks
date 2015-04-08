@@ -44,13 +44,13 @@ You can set your preferences like this...
 
 	VersionedBlocks.reset
 
-`VersionedBlocks.versions` and `VersionedBlocks.base_uri` can both be overridden in a specific case using `override: true`:
+All configurations can be overridden in a specific case using `override: true`:
 
-	versioned_block(from: 1, to: 10, base_uri: 'http://new-api.com/', override: true) do |v, uri|
+	versioned_block(from: 1, to: 10, base_uri: 'http://new-api.com/', prepend_errors: false, override: true) do |v, uri|
 		puts "For version #{v}, the URI is now #{uri}"
 	end
 
-You can also just override one of them - the other will use the default value:
+You can also just override one of them - the others will use their default value:
 
 	versioned_block(from: 1, to: 10, override: true) do |v, uri|
 		"Puts overriding the versions but not the uri:"
