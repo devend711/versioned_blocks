@@ -13,10 +13,10 @@ The last example would pass 'http://www.api.com/v2' through 'http://www.api.com/
 ### Specifying ranges
 
 You can specify version ranges in many ways:
-- {from: 2, to: 4} would result in v2, v3, v4
-- {to: 3} would result in v1, v2, v3
-- {only: 6} would result in v6
-- {these: [2,4,5]} would result in v2, v4, v5
+- {from: 2, to: 4} would pass 2,3,4 to the block
+- {to: 3} would pass 1,2,3 to the block
+- {only: 6} would pass just 6 to the block
+- {these: [2,4,5]} would pass 2,4,5 to the block
 
 You can config all blocks to run over a certain range by default, like this...
 	
