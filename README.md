@@ -8,7 +8,7 @@ Are you working with versioned APIs? Loop through them easily like this:
 		puts "For version #{v}, the URI is #{uri}"
 	end
 
-The last example would pass 'http://www.api.com/v2' through 'http://www.api.com/v4' to the block.
+## Usage
 
 ### Specifying ranges
 
@@ -73,10 +73,6 @@ And then execute:
 Or install it yourself as:
 
     $ gem install versioned_blocks
-
-## Usage
-
-TODO: Write usage instructions here
 
 ## Contributing
 
