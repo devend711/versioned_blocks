@@ -52,8 +52,9 @@ All configurations can be overridden in a specific case using `override: true`:
 
 You can also just override one of them - the others will use their default value:
 
+	puts "overriding the versions but not the uri:"
+
 	versioned_block(from: 1, to: 10, override: true) do |v, uri|
-		"Puts overriding the versions but not the uri:"
 		puts "For version #{v}, the URI is still #{uri}"
 	end
 
