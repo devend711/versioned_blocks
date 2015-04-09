@@ -37,6 +37,15 @@ describe 'Versioned Blocks' do
         end
         expect(@count).to eq @y
       end
+
+      it 'raises an error if :from > :to' do
+        begin
+          versioned_block(from:@y, to:@x) {}
+          expect(false).to be true
+        rescue Exception=>e
+          expect(e.class.to_s).to eq 'RuntimeError'
+        end
+      end
     end
 
     context ':these' do
