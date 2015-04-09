@@ -30,7 +30,13 @@ You can config all blocks to run over a certain range by default, like this...
 		puts "For version #{v}, the URI is #{uri}"
 	end
 
-### Configuration
+### Error messages
+
+If you're using a versioned_block inside a test, for example, you might want any error messages to include some information about the version number that the test broke on. Just configure VersionedBlocks like this:
+
+	VersionedBlocks.prepend_errors = true
+
+### Configuring defaults
 
 You can set your preferences like this...
       
@@ -53,12 +59,6 @@ You can also just override one of them - the others will use their default value
 	versioned_block(from: 1, to: 10, override: true) do |v, uri|
 		puts "For version #{v}, the URI is still #{uri}"
 	end
-
-### Error messages
-
-If you're using a versioned_block inside a test, for example, you might want any error messages to include some information about the version number that the test broke on. Just configure VersionedBlocks like this:
-
-	VersionedBlocks.prepend_errors = true
 
 ## Installation
 
