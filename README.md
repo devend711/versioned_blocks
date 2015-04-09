@@ -2,8 +2,6 @@
 
 Are you working with versioned APIs? Loop through them easily like this:
 
-	versioned_block(from: 1, to: 3) {|v| puts "version #{v}"}
-
 	VersionedBlocks.base_uri = 'http://www.api.com/'
 
 	versioned_block(from: 2, to: 4) do |v, uri|
@@ -51,8 +49,6 @@ All configurations can be overridden in a specific case using `override: true`:
 	end
 
 You can also just override one of them - the others will use their default value:
-
-	puts "overriding the versions but not the uri:"
 
 	versioned_block(from: 1, to: 10, override: true) do |v, uri|
 		puts "For version #{v}, the URI is still #{uri}"
