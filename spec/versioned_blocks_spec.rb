@@ -43,7 +43,7 @@ describe 'Versioned Blocks' do
           versioned_block(from:@y, to:@x) {}
           expect(false).to be true
         rescue Exception=>e
-          expect(e.class.to_s).to eq 'RuntimeError'
+          expect(e.class.to_s).to eq 'VersionedBlocksException'
         end
       end
     end
