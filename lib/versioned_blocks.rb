@@ -40,9 +40,9 @@ class VersionedBlocks
       # or reset the default versioning with:
       #   VersionedRetry.reset
       opts = opts_specify_a_version?(opts) || (opts[:override]==true && opts_specify_a_version?(opts)) ? opts : self.versions 
-      raise "No versions specified!" if opts == {} || !opts_specify_a_version?(opts)
+      raise VersionedBlocksException, "No versions specified!" if opts == {} || !opts_specify_a_version?(opts)
       if opts[:from].is_a?(Integer) && opts[:to].is_a?(Integer) # from vX to vY
-        raise "Expected :from (#{opts[:from]}) to be less than :to (#{opts[:to]})" if opts[:from] > opts[:to]
+        raise VersionedBlocksException, "Expected :from (#{opts[:from]}) to be less than :to (#{opts[:to]})" if opts[:from] > opts[:to]
         versions_to_test = (opts[:from]..opts[:to])
       else
         if opts[:to].is_a?(Integer) # up to vX
@@ -53,10 +53,10 @@ class VersionedBlocks
           if opts[:these].all?{|n| n.is_a?(Integer)}
             versions_to_test = opts[:these]
           else
-            raise "Each element in :these must be an integer"
+            raise VersionedBlocksException, "Each element in :these must be an integer"
           end
         else
-          raise "Couldn't determine which versions to test!\nUse :only, :these, :to, or :from and :to"
+          raise VersionedBlocksException, "Couldn't determine which versions to test!\nUse :only, :these, :to, or :from and :to"
         end
       end
       versions_to_test
@@ -84,4 +84,7 @@ module Kernel
       end
     end
   end
+end
+
+class VersionedBlocksException < Exception
 end
