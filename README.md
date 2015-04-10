@@ -68,7 +68,7 @@ You can also just override one of them - the others will use their default value
 		puts "For version #{v}, the URI is still #{uri}"
 	end
 
-## With RSpec
+## Usage with RSpec
 
 Testing multiple API versions with RSpec? Check out [RSpec::Versioned](https://github.com/devend711/rspec-versioned).
 
