@@ -1,5 +1,7 @@
 # versioned_blocks
 
+[![Gem Version](https://badge.fury.io/rb/versioned_blocks.svg)](http://badge.fury.io/rb/versioned_blocks)
+
 Are you working with versioned APIs? Loop through them easily like this:
 
 	VersionedBlocks.base_uri = 'http://www.api.com/'
