@@ -13,7 +13,7 @@ Are you working with versioned APIs? Loop through them easily like this:
 ### Specifying ranges
 
 You can specify version ranges in many ways:
-- {from: 2, to: 4} would pass 2,3,4 to the block
+- {from: 2, to: 4} would pass 2,3,4 to the block, resulting in "http://www.api.com/v2", "http://www.api.com/v3", "http://www.api.com/v4"
 - {to: 3} would pass 1,2,3 to the block
 - {only: 6} would pass just 6 to the block
 - {these: [2,4,5]} would pass 2,4,5 to the block
