@@ -40,7 +40,7 @@ class VersionedBlocks
       # or reset the default versioning with:
       #   VersionedRetry.reset
       opts = opts_specify_a_version?(opts) || (opts[:override]==true && opts_specify_a_version?(opts)) ? opts : self.versions 
-      #opts = self.versions unless (opts[:override]==true || self.versions == {})
+      raise "No versions specified!" if opts == {} || !opts_specify_a_version?(opts)
       if opts[:from].is_a?(Integer) && opts[:to].is_a?(Integer) # from vX to vY
         raise "Expected :from (#{opts[:from]}) to be less than :to (#{opts[:to]})" if opts[:from] > opts[:to]
         versions_to_test = (opts[:from]..opts[:to])
