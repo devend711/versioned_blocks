@@ -1,8 +1,12 @@
 class VersionedBlocks
-  VERSION = "1.0.3"
+  VERSION = "1.0.4"
 
   class << self
     attr_accessor :versions, :base_uri, :prepend_errors
+
+    def base_url # alias base_uri
+      base_uri
+    end 
 
     def reset
       # set defaults
