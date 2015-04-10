@@ -1,14 +1,15 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
+require 'versioned_blocks'
 
 Gem::Specification.new do |spec|
   spec.name          = "versioned_blocks"
   spec.version       = VersionedBlocks::VERSION
   spec.authors       = ["ddayal-fiksu"]
   spec.email         = ["ddayal@fiksu.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = "Easily loop through versioned API URIs"
+  #spec.description   = %q{TODO: Write a longer description. Optional.}
   spec.homepage      = ""
   spec.license       = "MIT"
 
