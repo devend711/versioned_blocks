@@ -1,5 +1,5 @@
 class VersionedBlocks
-  VERSION = "1.0.2"
+  VERSION = "1.0.3"
 
   class << self
     attr_accessor :versions, :base_uri, :prepend_errors
