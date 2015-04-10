@@ -6,8 +6,8 @@ require 'versioned_blocks'
 Gem::Specification.new do |spec|
   spec.name          = "versioned_blocks"
   spec.version       = VersionedBlocks::VERSION
-  spec.authors       = ["ddayal-fiksu"]
-  spec.email         = ["ddayal@fiksu.com"]
+  spec.authors       = ["devend711@gmail.com"]
+  spec.email         = ["devend711@gmail.com"]
   spec.summary       = "Easily loop through versioned API URIs"
   #spec.description   = %q{TODO: Write a longer description. Optional.}
   spec.homepage      = ""
