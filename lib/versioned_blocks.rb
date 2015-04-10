@@ -34,11 +34,11 @@ class VersionedBlocks
       #   pass {from:2, to:3} to test v2,v3
       #   pass {these:[1,2,4]} to test v1,v2,v4 but NOT v3
       # you can set default versioning with:
-      #   VersionedRetry.config = {}
+      #   VersionedBlocks.config = {}
       # you can then override that default for a specifig case by passing:
       #   override:true
       # or reset the default versioning with:
-      #   VersionedRetry.reset
+      #   VersionedBlocks.reset
       opts = opts_specify_a_version?(opts) || (opts[:override]==true && opts_specify_a_version?(opts)) ? opts : self.versions 
       raise VersionedBlocksException, "No versions specified!" if opts == {} || !opts_specify_a_version?(opts)
       if opts[:from].is_a?(Integer) && opts[:to].is_a?(Integer) # from vX to vY
