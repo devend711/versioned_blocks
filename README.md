@@ -8,6 +8,10 @@ Are you working with versioned APIs? Loop through them easily like this:
 		puts "For version #{v}, the URI is #{uri}"
 	end
 
+	# => For version 2, the URI is http://www.api.com/v2
+	# => For version 3, the URI is http://www.api.com/v3
+	# => For version 4, the URI is http://www.api.com/v4
+
 The block is passed the version number and a URI string formed from the base URI and the respective version number.
 
 ## Usage
