@@ -8,6 +8,8 @@ Are you working with versioned APIs? Loop through them easily like this:
 		puts "For version #{v}, the URI is #{uri}"
 	end
 
+The block is passed the version number and a URI string formed from the base URI and the respective version number.
+
 ## Usage
 
 ### Specifying ranges
